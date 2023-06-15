@@ -1,6 +1,6 @@
 import React from 'react';
 import useAuth from './useAuth';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Navbar } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -44,10 +44,9 @@ const Dashboard = ({ code }) => {
   return (
     <Container className="d-flex flex-column py-2" style={{ height: '100vh' }}>
       <div className="d-flex justify-content-center align-items-center">
-        {' '}
-        HELLO
+        <h1>gIOS</h1>
       </div>
-      <div className="d-flex flex-grow-1 my-2 justify-content-center align-items-center">
+      <div className="d-flex flex-grow-1 my-2 justify-content-center">
         {' '}
         MIDDLE
       </div>
