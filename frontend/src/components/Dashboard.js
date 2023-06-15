@@ -1,11 +1,9 @@
 import React from 'react';
+import useAuth from './useAuth';
 
-const Dashboard = () => {
-  return (
-    <div>
-      <h1>Hello Dash</h1>
-    </div>
-  );
+const Dashboard = ({ code }) => {
+  const accessToken = useAuth(code);
+  return <div>{code}</div>;
 };
 
 export default Dashboard;
