@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Navbar, Stack } from 'react-bootstrap';
+import { BsSpotify } from 'react-icons/bs';
 
 const Login = () => {
   const params = new URLSearchParams();
@@ -27,7 +28,7 @@ const Login = () => {
           </div>
           <div>
             <a className="btn btn-success btn-lg" href={AUTH_URL}>
-              Login with Spotify
+              Login with <BsSpotify size={'2em'} />
             </a>
           </div>
         </Stack>
