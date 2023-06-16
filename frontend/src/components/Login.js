@@ -15,19 +15,37 @@ const Login = () => {
     backgroundColor: '#191825',
     color: '#865DFF',
   };
+  const buttonStyle = {
+    color: 'E384FF',
+    backgroundColor: '#865DFF',
+  };
+
+  const conStyle = {
+    color: '#865DFF',
+    minHeight: '70vh',
+  };
 
   return (
-    <Container className="d-flex flex-clo" style={{ minHeight: '100vh' }}>
+    <Container className="d-flex flex-clo" style={conStyle}>
       <div className="d-flex flex-grow-1 my-2 justify-content-center align-items-center">
         <Stack
-          gap={2}
+          gap={3}
           className="d-flex flex-grow-1 my-2 justify-content-center align-items-center"
         >
           <div>
-            <h1>Get a Glimpse of You!</h1>
+            <h1>A Glimpse of You:</h1>
+          </div>
+          <div className="mb-2">
+            <h4 className="justify-content-center align-items-center">
+              Share your top 5 Spotify artists with friends!
+            </h4>
           </div>
           <div>
-            <a className="btn btn-success btn-lg" href={AUTH_URL}>
+            <a
+              className="btn btn-success btn-lg"
+              style={buttonStyle}
+              href={AUTH_URL}
+            >
               Login with <BsSpotify size={'2em'} />
             </a>
           </div>
