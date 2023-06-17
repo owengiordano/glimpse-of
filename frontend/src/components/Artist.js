@@ -12,7 +12,7 @@ function Artist({ artistName, artistImage }) {
         <Col>
           <img alt="" style={{ width: '5rem', height: '5rem' }} src={image} />
         </Col>
-        <Col style={{ color: '#865DFF' }} className="my-auto">
+        <Col style={{ color: '#FFEEAF' }} className="my-auto">
           {name}
         </Col>
       </Row>

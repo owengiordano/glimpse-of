@@ -6,12 +6,13 @@ import { ReactComponent as Logo } from '../images/logo.svg';
 //import { ReactComponent as Logo } from "../images/logo.svg";
 
 const navbarStyle = {
-  backgroundColor: '#191825',
+  backgroundColor: '#FFEEAF',
+  width: '100%',
 };
 
 const Header = ({ title }) => {
   return (
-    <Navbar style={navbarStyle} className="mt-0" variant="light">
+    <Navbar style={navbarStyle} variant="light">
       <Container>
         <Navbar.Text className="mx-auto">
           <Logo

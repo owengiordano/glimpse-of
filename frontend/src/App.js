@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <Stack gap={3}>
-        <div className="p-2">
+        <div>
           <Header />
         </div>
         <div className="p-2">

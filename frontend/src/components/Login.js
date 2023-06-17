@@ -12,12 +12,12 @@ const Login = () => {
   const AUTH_URL = `https://accounts.spotify.com/authorize?${params.toString()}`;
 
   const buttonStyle = {
-    color: 'E384FF',
-    backgroundColor: '#865DFF',
+    color: '#7FBCD2',
+    backgroundColor: '#FFEEAF',
   };
 
   const conStyle = {
-    color: '#865DFF',
+    color: '#E1FFEE',
     minHeight: '70vh',
   };
 
@@ -29,7 +29,7 @@ const Login = () => {
           className="d-flex flex-grow-1 my-2 justify-content-center align-items-center"
         >
           <div>
-            <h1>Glimpse of Your Summer:</h1>
+            <h1 style={{ color: '#FFEEAF' }}>Glimpse of Your Summer:</h1>
           </div>
           <div className="mb-2">
             <h4 className="justify-content-center align-items-center">

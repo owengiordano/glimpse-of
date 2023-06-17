@@ -70,10 +70,10 @@ const Dashboard = ({ code }) => {
           gap={9}
           className="d-flex justify-content-center align-items-center"
         >
-          <div style={{ color: '#865DFF' }}>
+          <div style={{ color: '#E1FFEE' }}>
             <h1>A GLIMPSE OF</h1>
           </div>
-          <div style={{ color: '#865DFF' }}>
+          <div style={{ color: '#E1FFEE' }}>
             <h1>{name.toUpperCase()}'S SUMMER</h1>
           </div>
 

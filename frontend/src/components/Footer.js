@@ -19,10 +19,10 @@ const Footer = () => {
             />
           </div>
           <div>
-            <p style={{ color: 'white' }}>
+            <p style={{ color: '#E1FFEE' }}>
               Made by{' '}
               <a
-                style={{ color: '#865DFF' }}
+                style={{ color: '#A5F1E9' }}
                 href="https://linktr.ee/owengiord?utm_source=linktree_admin_share"
                 target="_blank"
                 rel="noreferrer"
