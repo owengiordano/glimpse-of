@@ -1,18 +1,19 @@
 import { Button, Card, Container, Row, Col } from 'react-bootstrap';
 
-function Artist() {
+function Artist({ artistName, artistImage }) {
+  console.log(artistName.name);
+  const name = artistName.name.toUpperCase();
+  console.log(name);
+  const image = artistName.image;
+  console.log(image);
   return (
     <Container>
       <Row>
         <Col>
-          <img
-            alt=""
-            style={{ width: '4rem', height: '4rem' }}
-            src="https://i.scdn.co/image/ab6761610000e5eb9555a0b3231117c8cde1fca7"
-          />
+          <img alt="" style={{ width: '5rem', height: '5rem' }} src={image} />
         </Col>
         <Col style={{ color: '#865DFF' }} className="my-auto">
-          Jack Johnson
+          {name}
         </Col>
       </Row>
     </Container>

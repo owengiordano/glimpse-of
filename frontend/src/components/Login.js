@@ -29,11 +29,11 @@ const Login = () => {
           className="d-flex flex-grow-1 my-2 justify-content-center align-items-center"
         >
           <div>
-            <h1>A Glimpse of Your Summer:</h1>
+            <h1>Glimpse of Your Summer:</h1>
           </div>
           <div className="mb-2">
             <h4 className="justify-content-center align-items-center">
-              Who is on your summer lineup?
+              Who's your summer go-to?
             </h4>
           </div>
           <div>

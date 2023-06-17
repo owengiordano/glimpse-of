@@ -5,10 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Artist from './Artist';
+import Spinner from './Spinner';
 
 const Dashboard = ({ code }) => {
   const accessToken = useAuth(code);
   const [artists, setArtists] = useState([]);
+  const [name, setName] = useState('YOUR');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!accessToken) return;
@@ -43,36 +46,50 @@ const Dashboard = ({ code }) => {
     };
 
     const getName = async () => {
-      await axios.get();
+      await axios
+        .get('https://api.spotify.com/v1/me', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+        .then((info) => {
+          setName(info.data.display_name);
+          setLoading(false);
+        });
     };
+    getName();
     getArtists();
   }, [accessToken]);
 
   return (
     <Container style={{ height: '75%' }}>
-      <Stack
-        gap={9}
-        className="d-flex justify-content-center align-items-center"
-      >
-        <div style={{ color: '#865DFF' }}>
-          <h1>A GLIMPSE OF</h1>
-        </div>
-        <div style={{ color: '#865DFF' }}>
-          <h1>GIO'S SUMMER</h1>
-        </div>
-
-        {artists.length > 0 ? (
-          <div>
-            {artists.map((artist, i) => (
-              <div key={i} className="p-2">
-                <Artist artistName={artist} />
-              </div>
-            ))}
+      {loading ? (
+        <Spinner />
+      ) : (
+        <Stack
+          gap={9}
+          className="d-flex justify-content-center align-items-center"
+        >
+          <div style={{ color: '#865DFF' }}>
+            <h1>A GLIMPSE OF</h1>
           </div>
-        ) : (
-          <div></div>
-        )}
-      </Stack>
+          <div style={{ color: '#865DFF' }}>
+            <h1>{name.toUpperCase()}'S SUMMER</h1>
+          </div>
+
+          {artists.length > 0 ? (
+            <div>
+              {artists.map((artist, i) => (
+                <div key={i} className="p-2">
+                  <Artist artistName={artist} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </Stack>
+      )}
     </Container>
   );
 };
