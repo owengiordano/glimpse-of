@@ -42,9 +42,12 @@ const Dashboard = ({ code }) => {
         });
     };
 
+    const getName = async () => {
+      await axios.get();
+    };
     getArtists();
   }, [accessToken]);
-  console.log(artists);
+
   return (
     <Container style={{ height: '75%' }}>
       <Stack
@@ -57,21 +60,18 @@ const Dashboard = ({ code }) => {
         <div style={{ color: '#865DFF' }}>
           <h1>GIO'S SUMMER</h1>
         </div>
-        <div className="p-2">
-          <Artist />
-        </div>
-        <div className="p-2">
-          <Artist />
-        </div>
-        <div className="p-2">
-          <Artist />
-        </div>
-        <div className="p-2">
-          <Artist />
-        </div>
-        <div className="p-2">
-          <Artist />
-        </div>
+
+        {artists.length > 0 ? (
+          <div>
+            {artists.map((artist, i) => (
+              <div key={i} className="p-2">
+                <Artist artistName={artist} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div></div>
+        )}
       </Stack>
     </Container>
   );
