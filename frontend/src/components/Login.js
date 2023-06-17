@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Navbar, Stack } from 'react-bootstrap';
+import { Container, Stack } from 'react-bootstrap';
 import { BsSpotify } from 'react-icons/bs';
 
 const Login = () => {
@@ -11,10 +11,6 @@ const Login = () => {
 
   const AUTH_URL = `https://accounts.spotify.com/authorize?${params.toString()}`;
 
-  const navStyle = {
-    backgroundColor: '#191825',
-    color: '#865DFF',
-  };
   const buttonStyle = {
     color: 'E384FF',
     backgroundColor: '#865DFF',
@@ -33,16 +29,16 @@ const Login = () => {
           className="d-flex flex-grow-1 my-2 justify-content-center align-items-center"
         >
           <div>
-            <h1>A Glimpse of You:</h1>
+            <h1>A Glimpse of Your Summer:</h1>
           </div>
           <div className="mb-2">
             <h4 className="justify-content-center align-items-center">
-              Share your top 5 Spotify artists with friends!
+              Who have you been listening to this summer?
             </h4>
           </div>
           <div>
             <a
-              className="btn btn-success btn-lg"
+              className="btn btn-secondary btn-lg"
               style={buttonStyle}
               href={AUTH_URL}
             >
