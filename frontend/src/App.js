@@ -10,9 +10,17 @@ const code = new URLSearchParams(window.location.search).get('code');
 function App() {
   return (
     <div>
-      <Header />
-      {code ? <Dashboard code={code} /> : <Login />}
-      <Footer />
+      <Stack gap={3}>
+        <div className="p-2">
+          <Header />
+        </div>
+        <div className="p-2">
+          {code ? <Dashboard code={code} /> : <Login />}
+        </div>
+        <div className="p-2">
+          <Footer />
+        </div>
+      </Stack>
     </div>
   );
 }

@@ -1,59 +1,78 @@
 import React from 'react';
 import useAuth from './useAuth';
-import { Container, Button, Navbar } from 'react-bootstrap';
+import { Container, Button, Stack, ProgressBar } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Artist from './Artist';
 
 const Dashboard = ({ code }) => {
   const accessToken = useAuth(code);
-  const [timeRange, setTimeRange] = useState('');
   const [artists, setArtists] = useState([]);
 
   useEffect(() => {
-    if (!timeRange) return setTimeRange('');
     if (!accessToken) return;
+    const getArtists = async () => {
+      const limit = 10;
+      const offset = 0;
 
-    const limit = 10;
-    const offset = 0;
+      await axios
+        .get(
+          `https://api.spotify.com/v1/me/top/artists?limit=${limit}&time_range=short_term&offset=${offset}`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        )
+        .then((res) => {
+          const data = res.data.items.slice(0, 5);
+          for (let i = 0; i < 5; i++) {
+            const name = data[i].name;
+            const image = data[i].images[0].url;
+            const popularity = data[i].popularity;
+            const id = data[i].id;
+            setArtists((a) => {
+              return [
+                ...a,
+                { name: name, image: image, popularity: popularity, id: id },
+              ];
+            });
+          }
+        });
+    };
 
-    axios
-      .get(
-        `https://api.spotify.com/v1/me/top/artists?limit=${limit}&time_range=${timeRange}&offset=${offset}`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      )
-      .then((res) => {
-        const data = res.data.items.slice(0, 5);
-        for (let i = 0; i < 5; i++) {
-          const name = data[i].name;
-          const images = data[i].images;
-          const popularity = data[i].popularity;
-          const id = data[i].id;
-          setArtists((a) => {
-            return [
-              ...a,
-              { name: name, images: images, popularity: popularity, id: id },
-            ];
-          });
-        }
-      });
-  }, [accessToken, timeRange]);
+    getArtists();
+  }, [accessToken]);
+  console.log(artists);
   return (
-    <Container className="d-flex flex-column py-2" style={{ height: '100vh' }}>
-      <div className="d-flex justify-content-center align-items-center">
-        <h1>gIOS</h1>
-      </div>
-      <div className="d-flex flex-grow-1 my-2 justify-content-center">
-        {' '}
-        MIDDLE
-      </div>
-      <div className="d-flex justify-content-center align-items-center">
-        BOTTOM
-        <Button onClick={() => setTimeRange('short_term')}>HERE</Button>
-      </div>
+    <Container style={{ height: '75%' }}>
+      <Stack
+        gap={9}
+        className="d-flex justify-content-center align-items-center"
+      >
+        <div style={{ color: '#865DFF' }}>
+          <h1>A GLIMPSE OF</h1>
+        </div>
+        <div style={{ color: '#865DFF' }}>
+          <h1>GIO'S SUMMER</h1>
+        </div>
+        <div className="p-2">
+          <Artist />
+        </div>
+        <div className="p-2">
+          <Artist />
+        </div>
+        <div className="p-2">
+          <Artist />
+        </div>
+        <div className="p-2">
+          <Artist />
+        </div>
+        <div className="p-2">
+          <Artist />
+        </div>
+      </Stack>
     </Container>
   );
 };

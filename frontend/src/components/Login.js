@@ -33,7 +33,7 @@ const Login = () => {
           </div>
           <div className="mb-2">
             <h4 className="justify-content-center align-items-center">
-              Who have you been listening to this summer?
+              Who is on your summer lineup?
             </h4>
           </div>
           <div>

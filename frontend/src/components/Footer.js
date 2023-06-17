@@ -2,14 +2,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import spot_logo from './imagescomp/spotify_logo.png';
 import { Container, Stack } from 'react-bootstrap';
 
-function Footer() {
+const Footer = () => {
   return (
     <div>
-      <Container className="d-flex justify-content-center mt-3">
+      <Container className="d-flex justify-content-center">
         <Stack
           gap={2}
           className="d-flex justify-content-center align-items-center"
-          style={{ position: 'absolute', bottom: 0 }}
+          style={{ position: 'absolute', left: 0, right: 0 }}
         >
           <div>
             <img
@@ -35,6 +35,6 @@ function Footer() {
       </Container>
     </div>
   );
-}
+};
 
 export default Footer;
