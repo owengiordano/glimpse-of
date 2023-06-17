@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spinner as Loader } from 'react-bootstrap';
+import { Spinner as Loader, Container } from 'react-bootstrap';
 
 const spinnerStyle = {
   position: 'absolute',
@@ -8,7 +8,9 @@ const spinnerStyle = {
 };
 
 const Spinner = () => (
-  <Loader style={spinnerStyle} animation="border" variant="success" />
+  <Container style={{ height: '70vh' }}>
+    <Loader style={spinnerStyle} animation="border" variant="success" />
+  </Container>
 );
 
 export default Spinner;
